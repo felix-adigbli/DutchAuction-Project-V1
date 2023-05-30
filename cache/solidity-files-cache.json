@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/pheelix/DutchAuction-Project-V1/contracts/dutchauction.sol": {
-      "lastModificationDate": 1685301730683,
-      "contentHash": "1645693d237ed5be068a7f13cce9141d",
+      "lastModificationDate": 1685413105603,
+      "contentHash": "ed1a1e78dd30c4c12101b64b7775d52b",
       "sourceName": "contracts/dutchauction.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -25,6 +25,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
