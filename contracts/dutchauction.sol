@@ -3,20 +3,20 @@ pragma solidity ^0.8.0;
 
 contract DutchAuction {
     address payable public seller;
-    uint public reservePrice;
-    uint public numBlocksAuctionOpen;
-    uint public offerPriceDecrement;
-    uint public startBlock;
-    uint public endBlock;
-    uint public currentPrice;
+    uint256 public reservePrice;
+    uint256 public numBlocksAuctionOpen;
+    uint256 public offerPriceDecrement;
+    uint256 public startBlock;
+    uint256 public endBlock;
+    uint256 public currentPrice;
     bool public auctionEnded;
 
     //Seller Placed A bid
 
     constructor(
-        uint _reservePrice,
-        uint _numBlocksAuctionOpen,
-        uint _offerPriceDecrement
+        uint256 _reservePrice,
+        uint256 _numBlocksAuctionOpen,
+        uint256 _offerPriceDecrement
     ) {
         seller = payable(msg.sender);
         reservePrice = _reservePrice;
@@ -29,11 +29,10 @@ contract DutchAuction {
 
     //function for bidders to place bid and proccess the bid
     function placeBid() external payable {
-        require(block.number <= endBlock, "Auction Expired");
-        require(!auctionEnded, "Auction has ended");
+            require(!auctionEnded, "Auction has ended");
         currentPrice =
             reservePrice +
-            (startBlock + numBlocksAuctionOpen - block.number) *
+            (endBlock - block.number) *
             offerPriceDecrement; //get current price
         if (msg.value >= currentPrice) {
             auctionEnded = true;
